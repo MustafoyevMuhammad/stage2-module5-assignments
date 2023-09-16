@@ -19,14 +19,16 @@ public class LocalProcessor {
     private Long period = 10000000000000L;
     protected String processorVersion = "";
     private Scanner informationScanner;
-    private List<String> stringArrayList = new LinkedList<>();
+    private List<StringBuilder> stringArrayList = new LinkedList<>();
 
     // Constructors...
 
     @ListIteratorAnnotation
-    public void listIterator(List<String> stringList) {
-        stringArrayList = new LinkedList<>(stringList);
-        for (String str : stringArrayList) {
+    public void listIterator(List<StringBuilder> stringList) {
+        stringList = new LinkedList<>(stringList);
+        if(stringArrayList == null)
+            return;
+        for (StringBuilder str : stringArrayList) {
             System.out.println(str.hashCode());
         }
     }
