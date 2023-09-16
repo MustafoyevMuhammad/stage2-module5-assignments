@@ -15,6 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LocalProcessor {
+    private Integer valueOfCheap = 0;
     private String processorName = "";
     private Long period = 10000000000000L;
     protected String processorVersion = "";
@@ -22,7 +23,17 @@ public class LocalProcessor {
     private List<StringBuilder> stringArrayList = new LinkedList<>();
 
     // Constructors...
+    public LocalProcessor(String processorName, Long period, String processorVersion, Integer valueOfCheap,
+                          Scanner informationScanner, List<StringBuilder> stringArrayList) {
+        this.processorName = processorName;
+        this.period = period;
+        this.valueOfCheap = valueOfCheap;
+        this.informationScanner = informationScanner;
+        this.stringArrayList = stringArrayList;
+    }
 
+    public LocalProcessor() {
+    }
     @ListIteratorAnnotation
     public void listIterator(List<StringBuilder> stringList) {
         stringList = new LinkedList<>(stringList);
